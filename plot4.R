@@ -2,10 +2,18 @@
 library(data.table)
 library(base)
 
-#setwd("C:\\coursera\\course4\\wk1\\project")
-dev.cur()
-dev.set(which = 2)
+#setwd("C:\\coursera\\course4\\wk1\\project\\submit")
+
+# download zip file
+url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+zipName <- file.path(getwd(), "input_data.zip")
+download.file(url, zipName)
+unzip(zipName, overwrite = TRUE) 
+
+# read input file
 idt <- fread("household_power_consumption.txt", sep = ";")
+
+png (file = "plot4.png", width = 480, height = 480, units = "px" ) 
 
 # note must ignore NA when sum
 # sum(as.numeric(t1$Global_active_power), na.rm = TRUE)
@@ -23,9 +31,6 @@ td <- rbind(dt1,dt2)
 # much smallta set
 #object.size(td)
 # 394168 bytes
-
-# openpng device
-png (file = "plot4.png", width = 480, height = 480, units = "px" ) 
 
 # set parameter 2 x 2 grid
 par(mfrow = c(2,2))
@@ -71,3 +76,4 @@ plot(x, y, type="l", xlab="", ylab="Global_reactive_power")
 
 ## Don't forget to close the PNG device!
 dev.off()
+dev.set(2)
