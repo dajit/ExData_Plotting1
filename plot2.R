@@ -7,7 +7,8 @@ library(base)
 idt <- fread("household_power_consumption.txt", sep = ";")
 
 # note must ignore NA when sum
-sum(as.numeric(t1$Global_active_power), na.rm = TRUE)
+# sum(as.numeric(t1$Global_active_power), na.rm = TRUE)
+
 # big object 150 MB
 object.size(idt)
 
