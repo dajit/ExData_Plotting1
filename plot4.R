@@ -47,7 +47,7 @@ plot(x, y, type="l", xlab="", ylab="Global Active Power")
 # plot @ 1 2
 # Plot 
 y <- as.numeric(td$Voltage)
-plot(x, y, type="l", xlab="", ylab="Voltage")
+plot(x, y, type="l", xlab="datetime", ylab="Voltage")
 
 
 # plot @ 2 1
@@ -72,7 +72,7 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 # plot @ 2 2
 # Plot 
 y <- as.numeric(td$Global_reactive_power)
-plot(x, y, type="l", xlab="", ylab="Global_reactive_power")
+plot(x, y, type="l", xlab="datetime", ylab="Global_reactive_power")
 
 ## Don't forget to close the PNG device!
 dev.off()
